@@ -7,7 +7,13 @@ if ['app_master', 'app', 'solo'].include?(node[:instance_role])
     version "0.10.0_beta5"
   end
 
-  link "/usr/bin/wkhtmltopdf" do
-    to "/usr/local/bin/wkhtmltopdf"
+  package "app-misc/wkhtmltopdf-bin" do
+    version "0.10.0_beta5"
+    action :install
+  end
+
+  link "/usr/local/bin/wkhtmltopdf" do
+    to "/usr/bin/wkhtmltopdf"
   end
 end
+
